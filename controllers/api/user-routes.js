@@ -11,17 +11,17 @@ router.get("/:id", (req, res) => {
 })
 // post user
 router.post("/", (req, res) => {
-    // expects {username: "", email: "", password: ""}
+    // expects {username: "", password: ""}
     // User.create({})
 })
 // post user login
 router.post("/login", (req, res) => {
-    // expects {username: "", email: "", password: ""}
+    // expects {username: "", password: ""}
     // User.findOne({})
 })
 // put user
 router.put("/:id", (req, res) => {
-    // expects {username: "", email: "", password: ""}
+    // expects {username: "", password: ""}
     // User.update({})
 })
 // delete user
