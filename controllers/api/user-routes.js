@@ -16,12 +16,28 @@ router.get("/", (req, res) => {
 });
 // get one user
 router.get("/:id", (req, res) => {
-  // User.findOne({})
+  User.findOne({
+    attributes: { exclude: ["password"] },
+    where: {
+      id: req.params.id,
+    },
+  });
 });
 // post user
 router.post("/", (req, res) => {
   // expects {username: "", password: ""}
-  // User.create({})
+  User.create({
+    username: req.body.username,
+    email: req.body.email,
+    password: req.body.email,
+  })
+    .then((dbUserData) => {
+      res.json(dbUserData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 // post user login
 router.post("/login", (req, res) => {
